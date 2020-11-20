@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+body {
+  overflow-x: hidden;
+  background-color: #e1e2e1;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+button {
+  outline: none;
+}

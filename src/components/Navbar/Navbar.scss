@@ -1,0 +1,42 @@
+.navbar {
+  width: 100vw;
+  height: 7vw;
+  background-color: #eeff41;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.9vw;
+  z-index: 1;
+
+  .navbar_title {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    h3 {
+      font-weight: 400;
+      font-size: 2.292vw;
+    }
+  }
+
+  .isActive {
+    color: #b8cc00;
+  }
+
+  img {
+    width: 2.292vw;
+  }
+
+  a {
+    font-size: 1.736vw;
+  }
+
+  a:not(:last-child) {
+    margin-right: 0.694vw;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
