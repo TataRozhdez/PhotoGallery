@@ -6,10 +6,10 @@ import './Navbar.scss'
 export const Navbar = ({ step1, step2, step3 }) => {
   return (
     <div className='navbar'>
-      <div className='navbar_title'>
+      <Link to='/' className='navbar_title'>
         <img src={galleryImg} alt='Gallery' />
         <h3> &nbsp;Photo Gallery</h3>
-      </div>
+      </Link>
 
       {step1 && (
         <div className='navbar_links'>

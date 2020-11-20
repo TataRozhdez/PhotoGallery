@@ -79,6 +79,16 @@ export const Home = () => {
                   onClick={clickPrevPage}
                 />
               )}
+              <div className='select'>
+                <label htmlFor='number'>Display images on page: </label>
+                <input
+                  type='number'
+                  defaultValue='20'
+                  required
+                  min='1'
+                  max='50'
+                />
+              </div>
               <img src={rightArrow} alt='Next page' onClick={clickNextPage} />
             </div>
           </>

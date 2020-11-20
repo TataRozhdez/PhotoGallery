@@ -53,20 +53,29 @@
 
   .page-btn {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     img {
-      width: 30px;
+      width: 2.083vw;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       border-radius: 50%;
 
-      &:not(:last-child) {
-        margin-right: 30px;
-      }
-
       &:hover {
         background-color: #ffff78;
         border-radius: 50%;
+      }
+    }
+
+    .select {
+      margin: 0 2.083vw;
+
+      input {
+        width: 4.167vw;
       }
     }
   }
