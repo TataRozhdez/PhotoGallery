@@ -6,6 +6,7 @@ import leftArrow from '../../img/left.png'
 import rightArrow from '../../img/right.png'
 import plusImg from '../../img/plus.png'
 import minusImg from '../../img/minus.png'
+import InputNumber from 'react-input-number'
 import './Home.scss'
 
 export const Home = () => {
@@ -18,6 +19,8 @@ export const Home = () => {
     images,
     page,
     getImages,
+    changeAmount,
+    amount,
     getNextPage,
     getPrevPage,
     addToFavorite,
@@ -81,12 +84,14 @@ export const Home = () => {
               )}
               <div className='select'>
                 <label htmlFor='number'>Display images on page: </label>
-                <input
-                  type='number'
-                  defaultValue='20'
-                  required
-                  min='1'
-                  max='50'
+                <InputNumber
+                  id='number'
+                  step={1}
+                  value={amount}
+                  min={1}
+                  max={50}
+                  onChange={changeAmount}
+                  enableMobileNumericKeyboard
                 />
               </div>
               <img src={rightArrow} alt='Next page' onClick={clickNextPage} />

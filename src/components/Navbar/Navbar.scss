@@ -34,10 +34,17 @@
 
   a {
     font-size: 1.736vw;
+
+    @media (max-width: 426px) {
+      font-size: 2.8vw;
+    }
   }
 
   a:not(:last-child) {
     margin-right: 0.694vw;
+    @media (max-width: 426px) {
+      margin-right: 2.694vw;
+    }
   }
 
   a:hover {

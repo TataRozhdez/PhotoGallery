@@ -7,11 +7,12 @@ import {
   CONNECT_ERROR,
   GET_NEXT_PAGE,
   GET_PREV_PAGE,
+  SET_NEW_AMOUNT,
 } from './types'
 
 const ImgState = (props) => {
   const initialState = {
-    amount: 15,
+    amount: 20,
     loading: true,
     images: [],
     page: 1,
@@ -30,7 +31,7 @@ const ImgState = (props) => {
       const pageString = state.page.toString()
 
       const res = await axios.get(
-        `https://picsum.photos/v2/list?page=${pageString}&limit=20`,
+        `https://picsum.photos/v2/list?page=${pageString}&limit=${state.amount}`,
         config
       )
 
@@ -44,6 +45,16 @@ const ImgState = (props) => {
         payload: error,
       })
     }
+  }
+
+  // Change amount
+  const changeAmount = (e) => {
+    const newAmount = e
+
+    dispatch({
+      type: SET_NEW_AMOUNT,
+      payload: newAmount,
+    })
   }
 
   // Get next page
@@ -97,6 +108,7 @@ const ImgState = (props) => {
         error: state.error,
         page: state.page,
         getImages,
+        changeAmount,
         getNextPage,
         getPrevPage,
         addToFavorite,

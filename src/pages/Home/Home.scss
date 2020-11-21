@@ -22,9 +22,13 @@
     cursor: pointer;
     z-index: 1;
     position: relative;
+    @media (max-width: 426px) {
+      width: 20vw;
+      height: 14vw;
+    }
 
     .item {
-      width: 13.889vw;
+      width: 100%;
     }
 
     .to-favorite {
@@ -37,6 +41,9 @@
       background-color: #ffff7880;
       border-radius: 50%;
       transition: all 0.5s ease-in-out;
+      @media (max-width: 426px) {
+        width: 3.5vw;
+      }
 
       &:hover {
         opacity: 1;
@@ -64,6 +71,9 @@
       cursor: pointer;
       transition: all 0.5s ease-in-out;
       border-radius: 50%;
+      @media (max-width: 426px) {
+        width: 4.3vw;
+      }
 
       &:hover {
         background-color: #ffff78;
@@ -76,6 +86,10 @@
 
       input {
         width: 4.167vw;
+
+        @media (max-width: 426px) {
+          width: 7.167vw;
+        }
       }
     }
   }

@@ -3,6 +3,7 @@ import {
   GET_NEXT_PAGE,
   GET_PREV_PAGE,
   CONNECT_ERROR,
+  SET_NEW_AMOUNT,
 } from './types'
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -31,6 +32,11 @@ export default (state, action) => {
         loading: false,
         images: [],
         error: action.payload,
+      }
+    case SET_NEW_AMOUNT:
+      return {
+        ...state,
+        amount: action.payload,
       }
     default:
       return state
