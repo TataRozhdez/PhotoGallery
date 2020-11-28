@@ -24,10 +24,6 @@
     }
   }
 
-  .isActive {
-    color: #b8cc00;
-  }
-
   img {
     width: 2.292vw;
   }
@@ -35,9 +31,22 @@
   a {
     font-size: 1.736vw;
 
+    &[disabled] {
+      color: #b8cc00;
+      pointer-events: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 426px) {
       font-size: 2.8vw;
     }
+  }
+
+  a.disabled {
+    color: red;
   }
 
   a:not(:last-child) {
@@ -45,9 +54,5 @@
     @media (max-width: 426px) {
       margin-right: 2.694vw;
     }
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 }

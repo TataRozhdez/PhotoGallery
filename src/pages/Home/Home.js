@@ -2,10 +2,10 @@ import React, { useEffect, useContext, useState } from 'react'
 import ImgContext from '../../context/imgContext'
 import { Navbar } from '../../components/Navbar/Navbar'
 import { Loader } from '../../components/Loader/Loader'
-import leftArrow from '../../img/left.png'
-import rightArrow from '../../img/right.png'
-import plusImg from '../../img/plus.png'
-import minusImg from '../../img/minus.png'
+import leftArrow from '../../img/left.svg'
+import rightArrow from '../../img/next.svg'
+import plusImg from '../../img/plus.svg'
+import checkedImg from '../../img/checked.svg'
 import InputNumber from 'react-input-number'
 import './Home.scss'
 
@@ -46,7 +46,7 @@ export const Home = () => {
 
   return (
     <>
-      <Navbar step1 />
+      <Navbar step1='disabled' />
       <div className='home-screen'>
         {loading && <Loader />}
         {error && <h1>Somthing go wrong...</h1>}
@@ -58,12 +58,14 @@ export const Home = () => {
                   <img className='item' src={i.download_url} alt={i.author} />
                 </a>
                 {favorites && favorites.find((k) => k.id === i.id) ? (
-                  <img
-                    className='to-favorite'
-                    src={minusImg}
-                    alt='Add to favorite'
-                    onClick={() => addToFavorite(i)}
-                  />
+                  <button className='to-favorite-btn'>
+                    <img
+                      className='to-favorite'
+                      src={checkedImg}
+                      alt='Add to favorite'
+                      onClick={() => addToFavorite(i)}
+                    />
+                  </button>
                 ) : (
                   <img
                     className='to-favorite'

@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Navbar } from '../../components/Navbar/Navbar'
 import ImgContext from '../../context/imgContext'
-import minusImg from '../../img/minus.png'
-import leftArrow from '../../img/left.png'
-import rightArrow from '../../img/right.png'
+import minusImg from '../../img/checked.svg'
+import leftArrow from '../../img/left.svg'
+import rightArrow from '../../img/next.svg'
 import './Favorite.scss'
 
 export const Favorite = () => {
@@ -48,7 +48,7 @@ export const Favorite = () => {
 
   return (
     <>
-      <Navbar step2 />
+      <Navbar step2='true' />
       <div className='favorite-screen'>
         <h3>Favorite images ♡</h3>
         {favorites ? (

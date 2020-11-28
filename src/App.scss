@@ -35,4 +35,14 @@ a {
 }
 button {
   outline: none;
+  border: none;
+}
+
+.to-favorite-btn {
+  width: fit-content;
+  height: fit-content;
+
+  &:hover {
+    border: none;
+  }
 }

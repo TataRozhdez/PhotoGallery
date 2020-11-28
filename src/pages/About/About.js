@@ -5,7 +5,7 @@ import './About.scss'
 export const About = () => {
   return (
     <>
-      <Navbar step3 />
+      <Navbar step3='true' />
       <div className='about-screen'>
         <h3>About App</h3>
         <p>
@@ -14,7 +14,24 @@ export const About = () => {
         </p>
         <p>
           You can find code of this project on{' '}
-          <a href='https://github.com/TataRozhdez/PhotoGallery'>GitHub</a>.
+          <a
+            href='https://github.com/TataRozhdez/PhotoGallery'
+            rel='noreferrer'
+            target='_blank'
+          >
+            GitHub
+          </a>
+          .
+        </p>
+        <p>
+          Reference to project construction conditions{' '}
+          <a
+            href='https://gist.github.com/soul-wish/4526980820bbdf410c64b5edb100b52c'
+            rel='noreferrer'
+            target='_blank'
+          >
+            here
+          </a>
         </p>
       </div>
     </>
