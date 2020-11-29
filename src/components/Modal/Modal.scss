@@ -1,0 +1,22 @@
+.modal {
+  background-color: rgba(58, 57, 57, 0.335);
+
+  .to-favorite {
+    width: 2.2vw;
+    padding: 0.28vw;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    opacity: 0.5;
+    background-color: #ffff7880;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    @media (max-width: 426px) {
+      width: 3.5vw;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

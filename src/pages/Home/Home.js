@@ -1,17 +1,16 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ImgContext from '../../context/imgContext'
 import { Navbar } from '../../components/Navbar/Navbar'
 import { Loader } from '../../components/Loader/Loader'
 import leftArrow from '../../img/left.svg'
 import rightArrow from '../../img/next.svg'
-import plusImg from '../../img/plus.svg'
-import checkedImg from '../../img/checked.svg'
+
 import InputNumber from 'react-input-number'
 import './Home.scss'
 
 export const Home = () => {
   const imgContext = useContext(ImgContext)
-  const [favorites, setFavorites] = useState([])
+  const [openModal, setOpenModal] = useState({})
 
   const {
     loading,
@@ -23,17 +22,13 @@ export const Home = () => {
     amount,
     getNextPage,
     getPrevPage,
-    addToFavorite,
   } = imgContext
 
-  const getFavorites = () => {
-    setFavorites(JSON.parse(localStorage.getItem('photoGallery')))
-  }
-
   useEffect(() => {
-    getImages()
-    getFavorites()
-  }, [getImages])
+    const fetchData = async () => await getImages()
+    fetchData()
+    // eslint-disable-next-line
+  }, [amount, page])
 
   const clickNextPage = (e) => {
     e.preventDefault()
@@ -43,6 +38,8 @@ export const Home = () => {
     e.preventDefault()
     getPrevPage()
   }
+
+  console.log(openModal)
 
   return (
     <>
@@ -54,35 +51,20 @@ export const Home = () => {
           <>
             {images.map((i) => (
               <div key={i.id} className='grid-images'>
-                <a href={i.download_url} target='_balnk'>
-                  <img className='item' src={i.download_url} alt={i.author} />
-                </a>
-                {favorites && favorites.find((k) => k.id === i.id) ? (
-                  <button className='to-favorite-btn'>
-                    <img
-                      className='to-favorite'
-                      src={checkedImg}
-                      alt='Add to favorite'
-                      onClick={() => addToFavorite(i)}
-                    />
-                  </button>
-                ) : (
+                <button onClick={() => setOpenModal(i)}>
                   <img
-                    className='to-favorite'
-                    src={plusImg}
-                    alt='Add to favorite'
-                    onClick={() => addToFavorite(i)}
+                    className='item'
+                    src={`https://picsum.photos/id/${i.id}/500`}
+                    alt={i.author}
                   />
-                )}
+                </button>
               </div>
             ))}
             <div className='page-btn'>
               {page > 1 && (
-                <img
-                  src={leftArrow}
-                  alt='Previous page'
-                  onClick={clickPrevPage}
-                />
+                <button onClick={clickPrevPage}>
+                  <img src={leftArrow} alt='Previous page' />
+                </button>
               )}
               <div className='select'>
                 <label htmlFor='number'>Display images on page: </label>
@@ -96,7 +78,9 @@ export const Home = () => {
                   enableMobileNumericKeyboard
                 />
               </div>
-              <img src={rightArrow} alt='Next page' onClick={clickNextPage} />
+              <button onClick={clickNextPage}>
+                <img src={rightArrow} alt='Next page' />
+              </button>
             </div>
           </>
         )}
