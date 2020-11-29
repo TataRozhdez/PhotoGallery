@@ -48,7 +48,7 @@ export const Favorite = () => {
 
   return (
     <>
-      <Navbar step2='true' />
+      <Navbar step2='disabled' />
       <div className='favorite-screen'>
         <h3>Favorite images ♡</h3>
         {favorites ? (

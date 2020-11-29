@@ -5,7 +5,7 @@ import './About.scss'
 export const About = () => {
   return (
     <>
-      <Navbar step3='true' />
+      <Navbar step3='disabled' />
       <div className='about-screen'>
         <h3>About App</h3>
         <p>

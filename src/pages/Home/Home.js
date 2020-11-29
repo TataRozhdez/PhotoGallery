@@ -4,13 +4,13 @@ import { Navbar } from '../../components/Navbar/Navbar'
 import { Loader } from '../../components/Loader/Loader'
 import leftArrow from '../../img/left.svg'
 import rightArrow from '../../img/next.svg'
-
 import InputNumber from 'react-input-number'
+import { Modal } from '../../components/Modal/Modal'
 import './Home.scss'
 
 export const Home = () => {
   const imgContext = useContext(ImgContext)
-  const [openModal, setOpenModal] = useState({})
+  const [openModal, setOpenModal] = useState()
 
   const {
     loading,
@@ -39,14 +39,13 @@ export const Home = () => {
     getPrevPage()
   }
 
-  console.log(openModal)
-
   return (
     <>
       <Navbar step1='disabled' />
       <div className='home-screen'>
         {loading && <Loader />}
         {error && <h1>Somthing go wrong...</h1>}
+        {openModal && <Modal item={openModal} closeModal={setOpenModal} />}
         {images && (
           <>
             {images.map((i) => (
