@@ -10,13 +10,21 @@
   padding: 0 10vw;
   z-index: 1;
 
+  @media (max-width: 426px) {
+    height: 10vw;
+  }
+
   .navbar_title {
     display: flex;
     flex-direction: row;
     text-align: center;
+    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
     h3 {
       font-weight: 400;
       font-size: 2.292vw;
+      @media (max-width: 426px) {
+        font-size: 2.8vw;
+      }
     }
     &:hover {
       text-decoration: none;
@@ -26,6 +34,9 @@
 
   img {
     width: 2.292vw;
+    @media (max-width: 426px) {
+      font-size: 3.8vw;
+    }
   }
 
   a {
@@ -54,5 +65,19 @@
     @media (max-width: 426px) {
       margin-right: 2.694vw;
     }
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
   }
 }
